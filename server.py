@@ -46,7 +46,6 @@ def root():
     if request.method == 'GET':
         if 'k' not in session:
             session['k'] = random.randint(1, 100)
-            return redirect('/random')
     
     else:
         file_data = request.files['file'].read().decode().split('\n')
@@ -63,7 +62,11 @@ def root():
         with open(os.path.join(os.getcwd(), 'templates', f'{session["k"]}.html'), 'w') as f:
             f.write(m._repr_html_())
 
-    return render_template('index.html', res=f"{session['k']}.html")
+    try:
+        return render_template('index.html', res=f"{session['k']}.html")
+    except:
+        return redirect('/random')
+
 
 @app.route('/random')
 def randomMap():
