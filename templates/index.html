@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)https://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/ -->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="robots" content="noarchive">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="https://img.icons8.com/ios/452/postcode.png" />
+
+    <title>Postal Code Stuff</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/index_files/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="/static/index_files/sticky-footer-navbar.css" rel="stylesheet" />
+</head>
+
+<body style="background-image: url('https://pbs.twimg.com/media/Ep3iSawWwAYo7MY?format=jpg&name=large'); background-position: center; background-size: cover;">
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">Postal Code Mapper</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Begin page content -->
+    <main role="main" class="container">
+        <h1 class="mt-5">Hello!</h1>
+        <p class="lead">
+            I got bored, so I dictate the file format now! 
+            Drop in a text file with a zipcode on each line. 
+            The first map will be randomly generated.
+        </p>
+        <p>You will need to disable cache.</p>
+        <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="#form #map">Toggle Form/Map</button>
+        </p>
+        <div class="multi-collapse show" aria-expanded="true" id="form">
+            <div class="card card-body" style="background: rgba(76, 175, 80, 0.1)">
+                <form enctype='multipart/form-data' action="/" method='POST'>
+                    <div class="form-group">
+                      <label for="file">Drop the input file here...</label>
+                      <input type="file" class="form-control-file" name="file" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+        </div>
+        <div class="multi-collapse collapse" id="map">
+            <div class="card card-body">
+                {% include res %}
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">postal codes go brrrrr...... (art by @killjo1s)</span>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/index_files/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script>
+        window.jQuery ||
+            document.write(
+                '<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>'
+            );
+    </script>
+    <script src="/static/index_files/popper.min.js"></script>
+    <script src="/static/index_files/bootstrap.min.js"></script>
+</body>
+
+</html>
