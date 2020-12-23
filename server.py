@@ -22,7 +22,7 @@ def generateMap(inp):
         tiles="Stamen Toner",
         zoom_start=11
         )
-    colormap = cm.LinearColormap(colors=['blue', 'red'], vmin=min(counted.values()), vmax=max(counted.values()))
+    colormap = cm.LinearColormap(colors=['yellow', 'red'], vmin=min(counted.values()), vmax=max(counted.values()))
     m.add_child(colormap)
     for code, count in counted.items():
         print(code)
@@ -62,7 +62,7 @@ def root():
             
         with open(os.path.join(os.getcwd(), 'templates', f'{session["k"]}.html'), 'w') as f:
             f.write(m._repr_html_())
-            
+
     return render_template('index.html', res=f"{session['k']}.html")
 
 @app.route('/random')
