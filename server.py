@@ -60,8 +60,8 @@ def root():
 
         m = generateMap([i[:2] for i in file_data])
             
-    with open(os.path.join(os.getcwd(), 'templates', f'{session["k"]}.html'), 'w') as f:
-        f.write(m._repr_html_())
+        with open(os.path.join(os.getcwd(), 'templates', f'{session["k"]}.html'), 'w') as f:
+            f.write(m._repr_html_())
     return render_template('index.html', res=f"{session['k']}.html")
 
 @app.route('/random')
