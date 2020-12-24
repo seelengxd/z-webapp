@@ -21,7 +21,8 @@
     <link href="/static/index_files/sticky-footer-navbar.css" rel="stylesheet" />
 </head>
 
-<body style="background-image: url('https://pbs.twimg.com/media/Ep3iSawWwAYo7MY?format=jpg&name=large'); background-position: center; background-size: cover;">
+<body
+    style="background-image: url('https://pbs.twimg.com/media/Ep3iSawWwAYo7MY?format=jpg&name=large'); background-position: center; background-size: cover;">
     <header>
         <!-- Fixed navbar -->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -33,24 +34,36 @@
     <main role="main" class="container">
         <h1 class="mt-5">Hello!</h1>
         <p class="lead">
-            I got bored, so I dictate the file format now! 
-            Drop in a text file with a zipcode on each line. 
+            I got bored, so I dictate the file format now!
+            Drop in a text file with a zipcode on each line.
             The first map will be randomly generated.
         </p>
         <p>You will need to disable cache.</p>
         <p>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="#form #map">Toggle Form/Map</button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse"
+                aria-expanded="false" aria-controls="#form #map">Toggle Form/Map</button>
         </p>
         <div class="multi-collapse show" aria-expanded="true" id="form">
             <div class="card card-body" style="background: rgba(76, 175, 80, 0.1)">
                 <form enctype='multipart/form-data' action="/" method='POST'>
                     <div class="form-group">
-                      <label for="file">Drop the input file here...</label>
-                      <input type="file" class="form-control-file" name="file" required>
+                        <label for="file">Drop the input file here...</label>
+                        <input type="file" class="form-control-file" name="file" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </form>
+                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    {%if updated%}
+                    <div class="alert alert-success" role="alert">
+                        Map updated, check it out! (Clear cache if it did not update.)
+                    </div>
+                    {%endif%}
+                    {%if err%}
+                    <div class="alert alert-danger" role="alert">
+                        {{err}}
+                    </div>
+                    {%endif%}
+                </form>
             </div>
+
         </div>
         <div class="multi-collapse collapse" id="map">
             <div class="card card-body">
